@@ -1,0 +1,134 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: url(../img/IaaS.jpg);
+}
+/* indicamos el espacio que tendra cada tarjeta dentro de la grilla */
+.tarjeta {
+  display: grid;
+  /* ancho tarjetiSha */
+  grid-template-columns: 300px;
+  /* de arriba pa bajo (?) */
+  grid-template-rows: 210px 210px 80px;
+  /* de arriba pa bajo (?) */
+  grid-template-areas: "imagen" "texto" "estadisticas";
+
+  border-radius: 18px;
+  background: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  font-family: roboto;
+  text-align: center;
+
+  transition: 0.5s ease;
+  cursor: pointer;
+  margin: 30px;
+}
+/* asignamos a cada parte de la grilla las areas que definimos */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area */
+.tarjeta-imagen {
+  grid-area: imagen;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  /* prefiero usar estas props X&Y para que sea indistinto el tamano de la imagen a usar como portada y siempre se encuentre en proporcion respecto al espacio que ocupa */
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-size: cover;
+}
+.tarjeta-texto {
+  grid-area: texto;
+}
+.tarjeta-estadisticas {
+  grid-area: estadisticas;
+}
+/* seccion del texto */
+.tarjeta-texto {
+  grid-area: texto;
+  margin: 25px;
+}
+.tarjeta-texto .categoria {
+  color: rgba(21, 3, 34, 0.583);
+  font-size: 13px;
+}
+.tarjeta-texto p {
+  color: grey;
+  font-size: 15px;
+  font-weight: 300;
+}
+.tarjeta-texto h2 {
+  margin-top: 0px;
+  font-size: 28px;
+  color: rgba(0, 0, 0, 0.796);
+}
+/* seccion estadisticas */
+.tarjeta-estadisticas {
+  grid-area: estadisticas;
+  display: grid;
+  /* https://css-tricks.com/introduction-fr-css-unit/ */
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: rgb(255, 7, 110);
+}
+.tarjeta-estadisticas .estadistica {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  padding: 10px;
+}
+/* Animacion de tarjeta */
+.tarjeta:hover {
+  transform: scale(1.15);
+  box-shadow: 5px 5px 15px rgb(0, 0, 0, 0.6);
+}
+/* tarjeta1 */
+.tarjeta-imagen.trj1 {
+  background: url("../img/python.jpg");
+  background-size: cover;
+}
+.tarjeta-texto.trj1 .categoria {
+  color: rgb(7, 156, 255);
+}
+.tarjeta-estadisticas.trj1 .borde {
+  border-left: 1px solid rgb(5, 133, 218);
+  border-right: 1px solid rgb(5, 133, 218);
+}
+.tarjeta-estadisticas.trj1 {
+  background: rgb(7, 156, 255);
+}
+/* tarjeta2 */
+.tarjeta-imagen.trj2 {
+  background: url("../img/PaaS.jpg");
+  background-size: cover;
+}
+.tarjeta-texto.trj2 .categoria {
+  color: rgb(255, 77, 7);
+}
+.tarjeta-estadisticas.trj2 .borde {
+  border-left: 1px solid rgb(185, 67, 20);
+  border-right: 1px solid rgb(185, 67, 20);
+}
+.tarjeta-estadisticas.trj2 {
+  background: rgb(255, 77, 7);
+}
+/* tarjeta3 */
+.tarjeta-imagen.trj3 {
+  background: url("../img/IaaS.jpg");
+  background-size: cover;
+}
+.tarjeta-texto.trj3 .categoria {
+  color: rgb(0, 189, 63);
+}
+.tarjeta-estadisticas.trj3 .borde {
+  border-left: 1px solid rgb(14, 122, 50);
+  border-right: 1px solid rgb(14, 122, 50);
+}
+.tarjeta-estadisticas.trj3 {
+  background: rgb(0, 189, 63);
+}
